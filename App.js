@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
+import Routes from './src/routes';
+import DefaultScreen from './src/components/Screen';
+import reactotron from 'reactotron-react-native';
 
+// Conectando ao reactotron para debug
+reactotron.configure().useReactNative().connect();
+console.tron = reactotron;
 export default function App() {
+  console.tron.log({ curso: "alura"})
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <DefaultScreen>
+      <Routes />
+    </DefaultScreen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
